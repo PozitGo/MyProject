@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Appointments;
 using Windows.Storage;
 using Windows.System;
+using static System.Net.WebRequestMethods;
+using Windows.UI.Xaml.Controls;
+using File = System.IO.File;
+using Windows.Storage.Streams;
 
 namespace MyProject.ViewModels
 {
     public static class InputAndOutputFile
     {
-        public static string path = @"C:\Users\Exper\Downloads\file.txt";
-        public static async Task InputFile(string firstname, string lastname, string phonenumber)
+        public static async void InputFile(string firstname, string lastname, string phonenumber)
         {
-            await Task.Run(() =>
-            { 
-             using (StreamWriter writer = new StreamWriter(path, true))
-             {
-                writer.WriteLine($"{firstname} {lastname} {phonenumber}");
-                }
-            });
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await storageFolder.GetFileAsync("sample.txt");
+            await FileIO.WriteTextAsync(sampleFile, $"{firstname} {lastname} {phonenumber}");
+
         }
 
         public static void OutputFile()
         {
-            
+
         }
     }
 }

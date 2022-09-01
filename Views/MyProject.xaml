@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid>
-
+        <Hub Header="Добро пожаловать" Margin="50,0,0,0"/>
         <NavigationView x:Name="nvSample" PaneDisplayMode="LeftCompact">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Play" Content="Menu Item1" Tag="SamplePage1"/>
@@ -23,9 +23,9 @@
                 <NavigationViewItem Icon="Download" Content="Menu Item4" Tag="SamplePage4" />
             </NavigationView.MenuItems>
             <Frame x:Name="contentFrame"/>
+            
         </NavigationView>
-        <Hub Header="Добро пожаловать" Margin="50,0,0,0"/>
-        <StackPanel Margin="50,0,0,0">
+        <StackPanel Margin="50,0,0,0" x:Name="panel">
             <TextBox x:Name="fName" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15, 65, 0, 0" Width="200" Header="FirstName" FontFamily="Cascadia Code" Text="{x:Bind ViewModel.FirstName, Mode=TwoWay}"/>
             <TextBox x:Name="lName" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15, 10, 0, 0" Width="200" Header="LastName" FontFamily="Cascadia Code" Text="{x:Bind ViewModel.LastName, Mode=TwoWay}"/>
             <TextBox x:Name="pNumber" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15, 10, 0, 0" Width="200" Header="Phone Number" FontFamily="Cascadia Code" Text="{x:Bind ViewModel.PhoneNumber, Mode=TwoWay}"/>
@@ -33,7 +33,22 @@
         </StackPanel>
         <ProgressRing x:Name="progressRing" Margin="250, 265, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top"  IsActive="{x:Bind ViewModel.IsVisibleProgressRing, Mode=OneTime}"/>
         <TextBlock x:Name="progressBlock" Margin="180, 255, 0, 0" Height="35" Width="90" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Cascadia Code" Text="{x:Bind ViewModel.ProgressText, Mode=TwoWay}" />
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0, 10, 0">
+            <TextBox x:Name="login" Margin="15, 65, 0, 0" Width="200" Header="Login" FontFamily="Cascadia Code" Text="{x:Bind ViewModel.Login, Mode=TwoWay}"/>
+            <PasswordBox x:Name="pass"  Margin="15, 10, 0, 0" Width="200" Header="Password" FontFamily="Cascadia Code" Password="{x:Bind ViewModel.Password, Mode=TwoWay}"/>
+            <Button Margin="15,15,0,0" Width="75" Height="30" Content="Submit" FontFamily="Cascadia Code" Command="{x:Bind ViewModel.ButtonCommandLogin, Mode=OneWay}"/>
 
+        </StackPanel >
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,200, 10, 0">
+            <TextBox x:Name="loginreg" Margin="15, 65, 0, 0" Width="200" Header="Login" FontFamily="Cascadia Code" Text="{x:Bind ViewModel.Login, Mode=TwoWay}"/>
+            <PasswordBox x:Name="passreg"  Margin="15, 10, 0, 0" Width="200" Header="Password" FontFamily="Cascadia Code" Password="{x:Bind ViewModel.Password, Mode=TwoWay}"/>
+            <PasswordBox x:Name="passregrepeat"  Margin="15, 10, 0, 0" Width="200" Header="Repeat password" FontFamily="Cascadia Code" Password="{x:Bind ViewModel.PasswordRepeat, Mode=TwoWay}"/>
+        </StackPanel>
+        <Button Margin="15,15,240,75" Width="100" Height="30" HorizontalAlignment="Right" Content="Зарегаться" FontFamily="Cascadia Code" Command="{x:Bind ViewModel.ButtonCommandRegister, Mode=OneWay}"/>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,200, 250, 0">
+            <TextBox x:Name="finame" Margin="15, 65, 0, 0" Width="200" Header="FirstName" FontFamily="Cascadia Code" Text="{x:Bind ViewModel.FirstName, Mode=TwoWay}"/>
+            <TextBox x:Name="laname" Margin="15, 10, 0, 0" Width="200" Header="LastName" FontFamily="Cascadia Code" Text="{x:Bind ViewModel.LastName, Mode=TwoWay}"/>
+        </StackPanel>
 
     </Grid>
 </Page>
